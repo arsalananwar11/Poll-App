@@ -25,7 +25,6 @@ deploy:
   app: "Poll-App"
   env: "poll-app"
   bucket_name: "elasticbeanstalk-us-east-1-156041420494"
-  bucket_path: "qasite/"
   on:
     branch: main
   
