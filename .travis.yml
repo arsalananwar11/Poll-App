@@ -1,20 +1,21 @@
+---
 language: python
 python:
-  - "3.11"  
+  - "3.11"
 
 cache: pip
 
 install:
-  - pip install -r requirements.txt  
+  - pip install -r requirements.txt
   - pip install coveralls
 
-script:
-  - black --check .  
-  - flake8 --exclude=migrations.
-  - coverage run manage.py test
+after_script:
+  - coveralls
 
-after_success:
-  - COVERALLS_REPO_TOKEN=vDUb1On2Oxg3gbE2F9yvq10VKK3drHUHV
+script:
+  - black --check .
+  - flake8 --exclude=migrations .
+  - coverage run --source=myproject,polls manage.py test
 
 deploy:
   provider: elasticbeanstalk
@@ -26,4 +27,3 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-1-156041420494"
   on:
     branch: main
-  
