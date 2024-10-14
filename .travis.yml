@@ -1,7 +1,8 @@
----
+dist: jammy
 language: python
-python:
-  - "3.8"
+matrix:
+  include:
+  - python: 3.11
 
 before_install:
   - sudo apt-get update -y
@@ -13,6 +14,9 @@ cache: pip
 install:
   - pip install -r requirements.txt
   - pip install coveralls
+
+before_script:
+  - python manage.py migrate
 
 after_script:
   - coveralls
