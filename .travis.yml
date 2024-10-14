@@ -11,10 +11,10 @@ install:
 script:
   - black --check .  
   - flake8 --exclude=migrations.
-  - coverage run --source=myproject,polls manage.py test
+  - coverage run manage.py test
 
 after_success:
-  - coveralls
+  - COVERALLS_REPO_TOKEN=vDUb1On2Oxg3gbE2F9yvq10VKK3drHUHV
 
 deploy:
   provider: elasticbeanstalk
