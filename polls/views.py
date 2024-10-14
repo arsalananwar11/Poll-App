@@ -5,6 +5,7 @@ from django.urls import reverse
 from polls.models import Choice
 from django.utils import timezone
 
+
 def index(request):
     latest_question_list = Question.objects.filter(
         pub_date__lte=timezone.now()
