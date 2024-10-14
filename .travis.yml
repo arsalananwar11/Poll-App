@@ -1,20 +1,29 @@
+dist: jammy
 language: python
-python:
-  - "3.11"  
+matrix:
+  include:
+  - python: 3.11
+
+before_install:
+  - sudo apt-get update -y
+  - sudo apt-get install -y sqlite3
+  - sqlite3 --version
 
 cache: pip
 
 install:
-  - pip install -r requirements.txt  
+  - pip install -r requirements.txt
   - pip install coveralls
 
+before_script:
+  - python manage.py migrate
 
 after_script:
   - coveralls
 
 script:
-  - black --check .  
-  - flake8 --exclude=migrations.
+  - black --check .
+  - flake8 --exclude=migrations .
   - coverage run --source=myproject,polls manage.py test
 
 deploy:
@@ -27,4 +36,3 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-1-156041420494"
   on:
     branch: main
-  
