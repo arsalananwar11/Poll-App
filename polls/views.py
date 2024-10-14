@@ -1,14 +1,9 @@
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from .models import Question
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from polls.models import Choice
 from django.utils import timezone
-
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-
 
 def index(request):
     latest_question_list = Question.objects.filter(
