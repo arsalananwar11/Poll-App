@@ -1,4 +1,5 @@
 # Mini Poll App
+![Coverage Status](https://app.travis-ci.com/arsalananwar11/Poll-App.svg?token=7CYaWo7xnzdHaX1GmyNP&branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/arsalananwar11/Poll-App/badge.svg?branch=main)](https://coveralls.io/github/arsalananwar11/Poll-App?branch=main)
 
 The **Mini Poll App** is a simple polling web application built using the **Django** framework as part of the **Assignment 1** of **CS-GY 6063: Software Engineering 1** course. It allows users to create, list, and vote on polls. This project serves as an introduction to Django's fundamental concepts such as views, templates, models, and forms.
