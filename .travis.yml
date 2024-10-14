@@ -8,14 +8,13 @@ install:
   - pip install -r requirements.txt  
   - pip install coveralls
 
-
-after_script:
-  - coveralls
-
 script:
   - black --check .  
   - flake8 --exclude=migrations.
   - coverage run --source=myproject,polls manage.py test
+
+after_success:
+  - coveralls
 
 deploy:
   provider: elasticbeanstalk
